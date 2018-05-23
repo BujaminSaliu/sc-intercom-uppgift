@@ -1,34 +1,86 @@
 import React, { Component } from 'react'
-import './App.css'
-import wrapper from './intercom-wrapper'
-import { Button } from 'react-bootstrap'
 import Modal from './Modal.js'
 
+//Change to correct url
+const SWIFTURL = 'http://www..se'
+
+const buttonStyle = {
+	borderRadius: '6px',
+	backgroundColor: '#008CBA',
+	padding: '10px 24px',
+	cursor: 'pointer',
+	color: 'white'
+}
+
+const listStyle = {
+	listStyleType: 'none'
+}
+
+const linkStyle = {
+	textDecoration: 'none'
+}
+
 class App extends Component {
-	state = {
-		show: false
+	constructor(props) {
+		super(props)
+		this.state = { show: false }
+
+		this.toggleModal = this.toggleModal.bind(this)
+		this.startChat = this.startChat.bind(this)
 	}
-	showModal = () => {
+
+	componentWillMount() {
+		if (typeof document !== 'undefined') {
+			const Intercom = require('./chat.js')
+		}
+	}
+
+	toggleModal() {
 		this.setState({
 			...this.state,
 			show: !this.state.show
 		})
 	}
 
+	startChat(e) {
+		window.Intercom('boot', {
+			app_id: 'fyq3wodw'
+		})
+		this.toggleModal()
+		e.preventDefault()
+	}
+
 	render() {
 		return (
-			<div className="App">
+			<div>
 				<header>
 					<h1>Intercom Testing</h1>
 				</header>
 				<p>Simple react app</p>
-
-				<input type="button" onClick={this.showModal} value="Show modal" />
-				<Modal onClose={this.showModal} show={this.state.show}>
-					<a href=""> Redigera kontakt</a>
-					<a href=""> Dela kontakt</a>
-					<a href=""> Signera kontakt</a>
-					<a href=""> Annat, ta mig till chatten</a>
+				<button style={buttonStyle} onClick={this.toggleModal}>
+					Support
+				</button>
+				<Modal onClose={this.toggleModal} show={this.state.show}>
+					<ol>
+						<li style={listStyle}>
+							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+								Redigera kontakt
+							</a>
+						</li>
+						<li style={listStyle}>
+							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+								Dela kontakt
+							</a>
+						</li>
+						<li style={listStyle}>
+							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+								Signera kontakt
+							</a>
+						</li>
+						<a href="" style={linkStyle} onClick={this.startChat}>
+							Annat - gå till chatten
+						</a>
+					</ol>
 				</Modal>
 			</div>
 		)

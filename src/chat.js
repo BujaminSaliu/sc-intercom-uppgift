@@ -1,15 +1,9 @@
-//Set your APP_ID
-var APP_ID = 'fyq3wodw'
-
-var is = (window.intercomSettings = {
-	app_id: APP_ID
-})
 ;(function() {
 	var w = window
 	var ic = w.Intercom
 	if (typeof ic === 'function') {
 		ic('reattach_activator')
-		ic('update', is)
+		ic('update')
 	} else {
 		var d = document
 		var i = function() {
@@ -24,7 +18,7 @@ var is = (window.intercomSettings = {
 			var s = d.createElement('script')
 			s.type = 'text/javascript'
 			s.async = true
-			s.src = 'https://widget.intercom.io/widget/' + APP_ID
+			s.src = 'https://widget.intercom.io/widget/fyq3wodw'
 			var x = d.getElementsByTagName('script')[0]
 			x.parentNode.insertBefore(s, x)
 		}
@@ -35,6 +29,3 @@ var is = (window.intercomSettings = {
 		}
 	}
 })()
-window.Intercom('boot', {
-	app_id: APP_ID
-})

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Modal from './Modal.js'
+import Modal from './modal.js'
+import Intercom from './intercom.js'
 
-//Change to correct url
-const SWIFTURL = 'http://www..se'
+const SWIFTCOURTLOCATION = 'http://www.swiftcourt.se'
 
 const buttonStyle = {
 	borderRadius: '6px',
@@ -21,8 +21,8 @@ const linkStyle = {
 }
 
 class App extends Component {
-	constructor(props) {
-		super(props)
+	constructor() {
+		super()
 		this.state = { show: false }
 
 		this.toggleModal = this.toggleModal.bind(this)
@@ -31,7 +31,7 @@ class App extends Component {
 
 	componentWillMount() {
 		if (typeof document !== 'undefined') {
-			const Intercom = require('./chat.js')
+			return
 		}
 	}
 
@@ -54,26 +54,26 @@ class App extends Component {
 		return (
 			<div>
 				<header>
-					<h1>Intercom Testing</h1>
+					<h1>Intercom</h1>
 				</header>
-				<p>Simple react app</p>
+				<h2>Simple react app</h2>
 				<button style={buttonStyle} onClick={this.toggleModal}>
 					Support
 				</button>
 				<Modal onClose={this.toggleModal} show={this.state.show}>
 					<ol>
 						<li style={listStyle}>
-							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
 								Redigera kontakt
 							</a>
 						</li>
 						<li style={listStyle}>
-							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
 								Dela kontakt
 							</a>
 						</li>
 						<li style={listStyle}>
-							<a href={SWIFTURL} target="_blank" style={linkStyle}>
+							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
 								Signera kontakt
 							</a>
 						</li>

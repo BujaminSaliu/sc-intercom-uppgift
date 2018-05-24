@@ -24,8 +24,9 @@ const modalStyle = {
 	maxWidth: 'fit-content',
 	minHeight: 'fit-content',
 	margin: 'auto auto',
-	paddingRight: 30,
-	position: 'relative'
+	paddingRight: 50,
+	position: 'relative',
+	lineHeight: 1.5
 }
 
 const footerStyle = {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Modal from './modal.js'
 import Intercom from './intercom.js'
 
-const SWIFTCOURTLOCATION = 'http://www.swiftcourt.se'
+const SCLOCATION = 'http://www.se'
 
 const buttonStyle = {
 	borderRadius: '6px',
@@ -63,17 +63,17 @@ class App extends Component {
 				<Modal onClose={this.toggleModal} show={this.state.show}>
 					<ol>
 						<li style={listStyle}>
-							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
+							<a href={SCLOCATION} target="_blank" style={linkStyle}>
 								Redigera kontakt
 							</a>
 						</li>
 						<li style={listStyle}>
-							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
+							<a href={SCLOCATION} target="_blank" style={linkStyle}>
 								Dela kontakt
 							</a>
 						</li>
 						<li style={listStyle}>
-							<a href={SWIFTCOURTLOCATION} target="_blank" style={linkStyle}>
+							<a href={SCLOCATION} target="_blank" style={linkStyle}>
 								Signera kontakt
 							</a>
 						</li>
